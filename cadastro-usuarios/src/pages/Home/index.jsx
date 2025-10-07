@@ -1,5 +1,6 @@
 
 import './styles.css'
+import Trash from '../../assets/trash.png'
 
 function Home() {
 
@@ -9,11 +10,21 @@ function Home() {
       <form>
         <h1>Cadastro de Usuários</h1>
         <input name='name' type='text' />
-        <input name='age' type='number'/>
-        <input name='email' type='email'/>
+        <input name='age' type='number' />
+        <input name='email' type='email' />
         <button type='button'>Cadastrar</button>
       </form>
+
+      <div>
+        <p>Nome: </p>
+        <p>Idade: </p>
+        <p>Email: </p>
+      </div>
+      <button>
+        <img src="{Trash}" />
+      </button>
     </div>
+
 
 
   )
