@@ -1,37 +1,130 @@
+
+:root {
+  --bg-color: #1e1e2f;
+  --card-color: #2a2943;
+  --accent-color: #8b8ae1;
+  --text-color: #ffffff;
+  --input-bg: #33324f;
+  --border-color: #48456c;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: "Inter", "Poppins", sans-serif;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* Container Principal */
 .container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
 }
 
+/* Título */
 h1 {
-    color: #fff;
-    font-size: 32px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
-form  {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px;
-    border-radius: 10px;
-    background-color: #2E2D4E;
-    max-width: 50%;
-    width: 400px;
-    margin-bottom: 20px;
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  border-radius: var(--radius);
+  background-color: var(--card-color);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  transition: var(--transition);
+}
 
-    & button {
-        border-radius: 30px;
-        background-color: #8B8AE1;
-        height: 40px;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 14px;
-    }
+form input {
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  height: 42px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 15px;
+  padding-left: 14px;
+  outline: none;
+  transition: var(--transition);
+}
 
-    &  button:hover {
-        opacity: 0.8;
-    }
+form input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(139, 138, 225, 0.4);
+}
+
+form button {
+  border-radius: 30px;
+  background-color: var(--accent-color);
+  height: 42px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  color: #fff;
+  transition: var(--transition);
+}
+
+form button:hover {
+  background-color: #7a78dc;
+  transform: translateY(-2px);
+}
+
+/* Cards de Usuário */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-color);
+  margin: 10px 0;
+  padding: 16px 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card p {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.card p span {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.card button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.card button:hover {
+  opacity: 0.6;
+  transform: scale(1.1);
 }
