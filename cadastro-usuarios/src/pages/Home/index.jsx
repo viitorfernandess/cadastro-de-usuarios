@@ -1,8 +1,21 @@
 
 import './styles.css'
-import Trash from '../../assets/trash.png'
+import Trash from '../../assets/trash.jpeg'
 
 function Home() {
+
+  const users = [{
+    id: '23484923riocdcm',
+    name: 'Vitor',
+    age: 27,
+    email: ' vitor@email.com'
+  },
+  {
+    id: '23484923rcecdcm',
+    name: 'Lucas',
+    age: 27,
+    email: 'lucas@email.com'
+  }]
 
   return (
 
@@ -15,16 +28,22 @@ function Home() {
         <button type='button'>Cadastrar</button>
       </form>
 
-      <div>
-        <p>Nome: </p>
-        <p>Idade: </p>
-        <p>Email: </p>
-      </div>
-      <button>
-        <img src="{Trash}" />
-      </button>
-    </div>
+      {users.map(user => (
+        <div key={user.id}>
+          <div>
+            <p>Nome:{user.name}</p>
+            <p>Idade:{user.age}</p>
+            <p>Email:{user.email}</p>
+          </div>
+          <button>
+            <img src="{Trash}" />
+          </button>
+        </div>
 
+      ))}
+
+
+    </div>
 
 
   )
