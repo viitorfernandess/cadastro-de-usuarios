@@ -1,21 +1,20 @@
-
+import { useEffect } from 'react'
 import './styles.css'
 import Trash from '../../assets/trash.jpeg'
+import api from '../../services/api'
 
 function Home() {
 
-  const users = [{
-    id: '23484923riocdcm',
-    name: 'Vitor',
-    age: 27,
-    email: ' vitor@email.com'
-  },
-  {
-    id: '23484923rcecdcm',
-    name: 'Lucas',
-    age: 27,
-    email: 'lucas@email.com'
-  }]
+  let users = []
+
+  async function getUsers() {
+    await api.get('/users')
+    console.log(users)
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
 
   return (
 
