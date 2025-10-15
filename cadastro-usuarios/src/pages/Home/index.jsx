@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import './styles.css'
 import Trash from '../../assets/trash.jpeg'
 import api from '../../services/api'
@@ -6,6 +6,10 @@ import api from '../../services/api'
 function Home() {
 
   const [users, setUsers] = useState([])
+
+  const inputName = useRef()
+  const inputAge = useRef()
+  const inputEmail = useRef()
 
 
   async function getUsers() {
@@ -18,6 +22,17 @@ function Home() {
     }
   }
 
+  async function createUsers() {
+
+    await api.post('/users', {
+      name: inputName.current.value,
+      age: inputAge.current.value,
+      email: inputEmail.current.value
+    })
+
+    getUsers()
+  }
+
   useEffect(() => {
     getUsers()
   }, [])
@@ -27,10 +42,10 @@ function Home() {
     <div className='container'>
       <form>
         <h1>Cadastro de Usuários</h1>
-        <input placeholder='Nome' name='name' type='text' />
-        <input placeholder='Idade' name='age' type='text' />
-        <input placeholder='E-mail' name='email' type='email' />
-        <button type='button'>Cadastrar</button>
+        <input placeholder='Nome' name='name' type='text' ref={inputName} />
+        <input placeholder='Idade' name='age' type='text' ref={inputAge} />
+        <input placeholder='E-mail' name='email' type='email' ref={inputEmail} />
+        <button type='button' onClick={createUsers}>Cadastrar</button>
       </form>
 
       {users.map(user => (
