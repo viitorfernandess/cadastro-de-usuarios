@@ -128,3 +128,10 @@ form button:hover {
     opacity: 0.6;
     transform: scale(1.1);
 }
+
+.card button img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+
+}

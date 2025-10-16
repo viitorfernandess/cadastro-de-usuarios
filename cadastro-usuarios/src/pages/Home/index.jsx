@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import './styles.css'
-import Trash from '../../assets/trash.jpeg'
+import Trash from '../../assets/trash.svg'
 import api from '../../services/api'
 
 function Home() {
@@ -30,7 +30,17 @@ function Home() {
       email: inputEmail.current.value
     })
 
+    inputName.current.value = ''
+    inputAge.current.value = ''
+    inputEmail.current.value = ''
+
     getUsers()
+  }
+
+  async function deleteUsers(id) {
+    await api.delete(`/users/${id}`)
+    getUsers()
+
   }
 
   useEffect(() => {
@@ -55,8 +65,8 @@ function Home() {
             <p>Idade: <span>{user.age}</span></p>
             <p>Email: <span>{user.email}</span></p>
           </div>
-          <button>
-            <img src="{Trash}" />
+          <button onClick={() => deleteUsers(user.id)}>
+            <img src={Trash} />
           </button>
         </div>
 
